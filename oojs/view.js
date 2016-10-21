@@ -39,7 +39,7 @@ class RotatorView {
     this.intervalID ? this.stopRotate() : this.startRotate(this.direction)
   }
   createNewRotator(){
-    let rotator = new Rotator(this.rotator.currentX, this.rotator.currentY, 100)
+    let rotator = new Rotator(this.rotator.currentX, this.rotator.currentY, 100, Math.PI * 2 * Math.random())
     let rotatorView = new RotatorView(rotator, -1 * this.direction)
     rotatorView.render()
     rotatorView.startRotate()
