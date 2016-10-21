@@ -1,0 +1,31 @@
+body {
+  text-align: center;
+  background-image: url("https://i.ytimg.com/vi/Y97Rec7DJrA/maxresdefault.jpg")
+}
+
+div.colorSelector {
+  height: 80px;
+  width: 100%;
+  text-align: center;
+}
+
+input {
+  background: #eee;
+  font-size: 1.5em;
+  padding: 10px;
+  border: none;
+  border-bottom: solid 2px #c9c9c9;
+  transition: border 0.3s;
+  border-bottom: solid 2px #969696;
+}
+div.rotator {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+h1 {
+  font-family: "Eczar", serif;
+  color: #eee;
+  text-shadow: 2px 3px #ccc;
+}
