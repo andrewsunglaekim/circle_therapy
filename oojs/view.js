@@ -10,9 +10,10 @@ class RotatorView {
     this.intervalID = null
     this.intervalLength = 25
     this.direction = direction
-    this.el.on("click", () => {
+    this.el.on("click", (evt) => {
       this.toggleRotation()
       this.createNewRotator()
+      this.clickOthers(evt)
     })
   }
   render(){
@@ -45,5 +46,13 @@ class RotatorView {
   }
   getCurrentColor(){
     return $("#colorField").val()
+  }
+  clickOthers(evt){
+    this.el.siblings("div.rotator").filter(function(){
+      let insideX = (parseInt($(this).css("left")) < evt.clientX) && (parseInt($(this).css("left")) > evt.clientX - 50)
+      let insideY = (parseInt($(this).css("top")) < evt.clientY) && (parseInt($(this).css("top")) > evt.clientY - 50)
+      return insideX && insideY
+    }).click()
+    // cursor x
   }
 }
