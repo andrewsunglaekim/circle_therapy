@@ -4,7 +4,7 @@ class RotatorView {
     this.el = $("<div class='rotator'></div>")
     this.el.css({
       position: "absolute",
-      background: this.getCurrentColor()
+      background: this.getCurrentColor() || this.getRandomColor()
     })
     this.setPosition()
     this.intervalID = null
@@ -54,5 +54,8 @@ class RotatorView {
       return insideX && insideY
     }).click()
     // cursor x
+  }
+  getRandomColor(){
+    return `rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)})`
   }
 }
