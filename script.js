@@ -8,4 +8,9 @@ $(document).ready(function(){
       direction *= -1
     }
   })
+  $("div.mode").click(function(){
+    $(this).toggleClass("rotate")
+    $(this).toggleClass("drop")
+    $(this).html($(this).hasClass("rotate") ? "Rotate" : "Drop Ball")
+  })
 })
