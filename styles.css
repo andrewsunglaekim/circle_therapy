@@ -34,8 +34,6 @@ h1 {
 }
 
 div.mode {
-  background: #eee;
-  color: #a9a9a9;
   font-size: 1.5em;
   padding: 10px;
   border: none;
@@ -45,4 +43,14 @@ div.mode {
   width: 30%;
   margin: auto;
   margin-top: 10px;
+}
+
+div.rotate {
+  background: #eee;
+  color: #a9a9a9;
+}
+
+div.drop {
+  background: #a9a9a9;
+  color: #eee;
 }
