@@ -48,7 +48,7 @@ class RotatorView {
     return $("#colorField").val()
   }
   clickOthers(evt){
-    this.el.siblings("div.rotator").filter(function(){
+    this.el.siblings("div.circle").filter(function(){
       let insideX = (parseInt($(this).css("left")) < evt.clientX) && (parseInt($(this).css("left")) > evt.clientX - 50)
       let insideY = (parseInt($(this).css("top")) < evt.clientY) && (parseInt($(this).css("top")) > evt.clientY - 50)
       return insideX && insideY
