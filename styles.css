@@ -20,7 +20,7 @@ input {
   transition: border 0.3s;
   border-bottom: solid 2px #969696;
 }
-div.rotator {
+div.circle {
   height: 50px;
   width: 50px;
   border-radius: 50%;

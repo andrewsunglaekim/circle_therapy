@@ -1,10 +1,10 @@
 class BallView {
   constructor(ball){
     this.ball = ball
-    this.el = $("<div class='ballDrop'></div>")
+    this.el = $("<div class='circle'></div>")
     this.el.css({
       position: "absolute",
-      background: this.getRandomColor()
+      background: this.getCurrentColor() || this.getRandomColor()
     })
     this.intervalID = null
     this.intervalLength = 20
@@ -15,6 +15,16 @@ class BallView {
     $(window).on("resize", () => {
       this.setInMotion()
     })
+    this.el.on("click", (evt) => {
+      this.toggleMotion()
+    })
+  }
+  toggleMotion(){
+    this.intervalID ? this.stopMotion() : this.setInMotion()
+  }
+  stopMotion(){
+    clearInterval(this.intervalID)
+    this.intervalID = null
   }
   setPosition(){
     this.el.css({
@@ -29,8 +39,7 @@ class BallView {
     if (!this.intervalID){
       this.intervalID = setInterval(() => {
         this.prevValue = parseFloat(this.ball.positionY)
-        this.ball.incrementTime(.19)
-        // console.log(this.isFalling())
+        this.ball.incrementTime(.15)
         this.checkBounce()
         this.setPosition()
       }, this.intervalLength)
@@ -38,9 +47,7 @@ class BallView {
   }
   checkBounce(){
     if(this.ball.positionY >= $(window).height() - 25 && this.isFalling()){
-      console.log("something");
-      // not only reset velocity, but initial position as well
-      this.ball.velocity = -.85 * this.ball.velocity
+      this.ball.velocity = -.95 * this.ball.velocity
       this.ball.initVelocity = this.ball.velocity
       this.ball.time = 0
       this.ball.initPosY = $(window).height() - 25
@@ -49,7 +56,6 @@ class BallView {
       if (!this.bounceCounterTimeoutId){
         this.bounceCounterTimeoutId = setTimeout(() => {
           this.bounceCounter = 0
-          console.log(this.bounceCounter);
           this.bounceCounterTimeoutId = null
         }, 2000)
       }
@@ -69,5 +75,8 @@ class BallView {
   }
   getRandomColor(){
     return `rgba(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.random()})`
+  }
+  getCurrentColor(){
+    return $("#colorField").val()
   }
 }

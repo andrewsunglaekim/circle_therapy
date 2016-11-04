@@ -1,7 +1,7 @@
 class RotatorView {
   constructor(rotator, direction){
     this.rotator = rotator
-    this.el = $("<div class='rotator'></div>")
+    this.el = $("<div class='circle'></div>")
     this.el.css({
       position: "absolute",
       background: this.getCurrentColor() || this.getRandomColor()
