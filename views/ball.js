@@ -47,7 +47,7 @@ class BallView {
   }
   checkBounce(){
     if(this.ball.positionY >= $(window).height() - 25 && this.isFalling()){
-      this.ball.velocity = -.95 * this.ball.velocity
+      this.ball.velocity = -.98 * this.ball.velocity
       this.ball.initVelocity = this.ball.velocity
       this.ball.time = 0
       this.ball.initPosY = $(window).height() - 25
